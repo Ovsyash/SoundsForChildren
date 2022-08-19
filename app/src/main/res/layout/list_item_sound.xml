@@ -6,10 +6,17 @@
             name="viewModel"
             type="com.ovsyannikov.soundsforchildren.SoundViewModel" />
     </data>
-    <Button
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="140dp"
-        tools:text="Sound name"
-        android:text="@{viewModel.title}"
-        android:layout_margin="2dp"/>
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp">
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            tools:text="Sound name"
+            android:onClick="@{() -> viewModel.onButtonClicked()}"
+            android:text="@{viewModel.title}"
+            android:layout_gravity="center"/>
+    </FrameLayout>
+
 </layout>

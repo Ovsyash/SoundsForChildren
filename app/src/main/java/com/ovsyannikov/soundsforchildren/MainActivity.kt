@@ -27,11 +27,16 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        soundsForChildren.release()
+    }
+
     private inner class SoundHolder(private val binding: ListItemSoundBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
             init {
-                binding.viewModel = SoundViewModel()
+                binding.viewModel = SoundViewModel(soundsForChildren)
             }
 
         fun bind(sound: Sound) {

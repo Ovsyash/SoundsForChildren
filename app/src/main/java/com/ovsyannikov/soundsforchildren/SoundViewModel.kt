@@ -3,7 +3,12 @@ package com.ovsyannikov.soundsforchildren
 import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable
 
-class SoundViewModel : BaseObservable() {
+class SoundViewModel(private val soundsForChildren: SoundsForChildren) : BaseObservable() {
+    fun onButtonClicked() {
+        sound?.let {
+            soundsForChildren.play(it)
+        }
+    }
 
     var sound: Sound? = null
         set(sound) {
